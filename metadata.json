@@ -1,0 +1,7 @@
+{
+  "name": "MAM Refrigeration",
+  "description": "Professional AC service, repair, installation, and used AC marketplace based in Dhaka, Bangladesh.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
