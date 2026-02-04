@@ -1,8 +1,8 @@
 
 import React from 'react';
-import { SERVICES } from '../constants';
+import { SERVICES } from '../constants.tsx';
 import * as LucideIcons from 'lucide-react';
-import { useLanguage } from '../App';
+import { useLanguage } from '../App.tsx';
 
 interface ServicesProps {
   onServiceClick: (type: 'service' | 'buy' | 'sell') => void;
@@ -11,9 +11,6 @@ interface ServicesProps {
 const Services: React.FC<ServicesProps> = ({ onServiceClick }) => {
   const { t, lang } = useLanguage();
 
-  // Helper to get translated service titles if needed, but for now we rely on content.tsx 
-  // with a minor tweak or just use the structure.
-  
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="text-center max-w-3xl mx-auto mb-16">
@@ -28,7 +25,6 @@ const Services: React.FC<ServicesProps> = ({ onServiceClick }) => {
         {SERVICES.map((service) => {
           const Icon = (LucideIcons as any)[service.icon] || LucideIcons.Wind;
           
-          // Simple dynamic translation for demo purposes
           const displayTitle = lang === 'bn' ? 
             (service.id === '1' ? 'এসি সার্ভিস ও রক্ষণাবেক্ষণ' : 
              service.id === '2' ? 'দক্ষ এসি মেরামত' : 

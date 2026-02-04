@@ -1,8 +1,8 @@
 
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, MessageCircle, Send, Loader2 } from 'lucide-react';
-import { useLanguage } from '../App';
-import { db, ref, push, set, serverTimestamp } from '../firebase';
+import { useLanguage } from '../App.tsx';
+import { db, ref, push, set, serverTimestamp } from '../firebase.ts';
 
 const Contact: React.FC = () => {
   const { t, lang } = useLanguage();

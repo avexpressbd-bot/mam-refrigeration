@@ -1,8 +1,8 @@
 
 import React from 'react';
-import { PRODUCTS } from '../constants';
+import { PRODUCTS } from '../constants.tsx';
 import { Tag, BadgeCheck, Thermometer } from 'lucide-react';
-import { useLanguage } from '../App';
+import { useLanguage } from '../App.tsx';
 
 interface InventoryProps {
   onBuy: (type: 'buy') => void;

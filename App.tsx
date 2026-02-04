@@ -1,16 +1,16 @@
 
 import React, { useState, createContext, useContext, ReactNode } from 'react';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import About from './components/About';
-import Services from './components/Services';
-import Inventory from './components/Inventory';
-import HowItWorks from './components/HowItWorks';
-import Testimonials from './components/Testimonials';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
-import BookingModal from './components/BookingModal';
-import { Language, translations } from './translations';
+import Navbar from './components/Navbar.tsx';
+import Hero from './components/Hero.tsx';
+import About from './components/About.tsx';
+import Services from './components/Services.tsx';
+import Inventory from './components/Inventory.tsx';
+import HowItWorks from './components/HowItWorks.tsx';
+import Testimonials from './components/Testimonials.tsx';
+import Contact from './components/Contact.tsx';
+import Footer from './components/Footer.tsx';
+import BookingModal from './components/BookingModal.tsx';
+import { Language, translations } from './translations.ts';
 
 interface LanguageContextType {
   lang: Language;

@@ -1,8 +1,8 @@
 
 import React, { useState } from 'react';
 import { X, Check, Loader2 } from 'lucide-react';
-import { useLanguage } from '../App';
-import { db, ref, push, set, serverTimestamp } from '../firebase';
+import { useLanguage } from '../App.tsx';
+import { db, ref, push, set, serverTimestamp } from '../firebase.ts';
 
 interface BookingModalProps {
   type: 'service' | 'buy' | 'sell';
