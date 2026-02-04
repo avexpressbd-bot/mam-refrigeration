@@ -1,7 +1,6 @@
-
 import React from 'react';
 import { Settings, Tool, Wind, ShoppingBag, Truck, CheckCircle } from 'lucide-react';
-import { Service, Product, Testimonial } from './types';
+import { Service, Product, Testimonial } from './types.ts';
 
 export const SERVICES: Service[] = [
   {

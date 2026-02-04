@@ -1,8 +1,7 @@
-
 import React, { useState } from 'react';
 import { X, Check, Loader2 } from 'lucide-react';
 import { useLanguage } from '../App.tsx';
-import { db, ref, push, set, serverTimestamp } from '../firebase.ts';
+import { db, ref, push, serverTimestamp } from '../firebase.ts';
 
 interface BookingModalProps {
   type: 'service' | 'buy' | 'sell';
@@ -30,20 +29,16 @@ const BookingModal: React.FC<BookingModalProps> = ({ type, onClose }) => {
     setLoading(true);
     
     try {
-      const bookingsRef = ref(db, 'bookings');
-      const newBookingRef = push(bookingsRef);
-      await set(newBookingRef, {
+      await push(ref(db, 'bookings'), {
         ...formData,
-        type: type,
-        source: 'Modal Booking',
+        type,
         timestamp: serverTimestamp()
       });
-      
-      alert(lang === 'bn' ? "বুকিং সফল হয়েছে! আমরা আপনার সাথে দ্রুত যোগাযোগ করব।" : "Booking successful! We will contact you shortly.");
+      alert(lang === 'bn' ? "বুকিং সফল হয়েছে! আমাদের প্রতিনিধি দ্রুত আপনার সাথে যোগাযোগ করবেন।" : "Booking successful! We will contact you shortly.");
       onClose();
     } catch (error) {
-      console.error("Firebase Error:", error);
-      alert(lang === 'bn' ? "দুঃখিত, আবার চেষ্টা করুন।" : "Error submitting inquiry. Please check your database rules.");
+      console.error("Error booking:", error);
+      alert(lang === 'bn' ? "বুকিং সম্পন্ন হয়নি। অনুগ্রহ করে আবার চেষ্টা করুন।" : "Error submitting booking. Please try again.");
     } finally {
       setLoading(false);
     }

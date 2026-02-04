@@ -1,7 +1,6 @@
-
 import React from 'react';
 import { Facebook, Twitter, Instagram, Linkedin, ThermometerSnowflake } from 'lucide-react';
-import { useLanguage } from '../App';
+import { useLanguage } from '../App.tsx';
 
 const Footer: React.FC = () => {
   const { t, lang } = useLanguage();

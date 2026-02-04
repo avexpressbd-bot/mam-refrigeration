@@ -1,8 +1,7 @@
-
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, MessageCircle, Send, Loader2 } from 'lucide-react';
 import { useLanguage } from '../App.tsx';
-import { db, ref, push, set, serverTimestamp } from '../firebase.ts';
+import { db, ref, push, serverTimestamp } from '../firebase.ts';
 
 const Contact: React.FC = () => {
   const { t, lang } = useLanguage();
@@ -19,19 +18,15 @@ const Contact: React.FC = () => {
     setLoading(true);
     
     try {
-      const inquiriesRef = ref(db, 'inquiries');
-      const newInquiryRef = push(inquiriesRef);
-      await set(newInquiryRef, {
+      await push(ref(db, 'contacts'), {
         ...formData,
-        source: 'Contact Form',
         timestamp: serverTimestamp()
       });
-      
-      alert(lang === 'bn' ? "সফলভাবে পাঠানো হয়েছে! তথ্যটি রিয়েলটাইম ডাটাবেসে জমা হয়েছে।" : "Success! Your inquiry has been saved to the Realtime Database.");
+      alert(lang === 'bn' ? "সফলভাবে পাঠানো হয়েছে! আমাদের প্রতিনিধি শীঘ্রই আপনার সাথে যোগাযোগ করবেন।" : "Success! Our representative will contact you shortly.");
       setFormData({ name: '', phone: '', service: 'AC Servicing', message: '' });
     } catch (error) {
-      console.error("Firebase Error:", error);
-      alert(lang === 'bn' ? "দুঃখিত, তথ্য পাঠানো সম্ভব হয়নি। ডাটাবেস রুলস চেক করুন।" : "Error sending message. Please check your database rules.");
+      console.error("Error saving to Firebase:", error);
+      alert(lang === 'bn' ? "দুঃখিত, কোনো সমস্যা হয়েছে। আবার চেষ্টা করুন।" : "Error sending message. Please try again.");
     } finally {
       setLoading(false);
     }

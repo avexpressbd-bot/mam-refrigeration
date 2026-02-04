@@ -1,7 +1,6 @@
-
 import React from 'react';
 import { Phone, CheckCircle, ArrowRight } from 'lucide-react';
-import { useLanguage } from '../App';
+import { useLanguage } from '../App.tsx';
 
 interface HeroProps {
   onAction: (type: 'service' | 'buy' | 'sell') => void;

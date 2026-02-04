@@ -1,7 +1,6 @@
-
 import React, { useState } from 'react';
 import { Menu, X, Phone, ThermometerSnowflake, Globe } from 'lucide-react';
-import { useLanguage } from '../App';
+import { useLanguage } from '../App.tsx';
 
 interface NavbarProps {
   onBook: () => void;

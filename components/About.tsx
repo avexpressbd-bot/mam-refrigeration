@@ -1,7 +1,6 @@
-
 import React from 'react';
 import { ShieldCheck, Award, MapPin } from 'lucide-react';
-import { useLanguage } from '../App';
+import { useLanguage } from '../App.tsx';
 
 const About: React.FC = () => {
   const { t } = useLanguage();
